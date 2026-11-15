@@ -1,0 +1,21 @@
+station,network,name,SEFD_used_Jy
+EF,EVN,Effelsberg 100 m,25.00
+IR,EVN,Irbene 32 m,480.00
+JB,EVN,Jodrell Bank,300.00
+MC,EVN,Medicina 32 m,840.00
+NT,EVN,Noto 32 m,1100.00
+ON,EVN,Onsala 25 m,850.00
+SR,EVN,Sardinia 64 m,50.00
+T6,EVN,Tianma 65 m,26.00
+TR,EVN,Torun 32 m,650.00
+WB,EVN,Westerbork 25 m,1600.00
+YS,EVN,Yebes 40 m,160.00
+S5,SKA-Mid,SKA-Mid phased array (assumed),3.10
+S004,SKA-Mid,SKA-Mid dish,330.00
+S008,SKA-Mid,SKA-Mid dish,330.00
+S133,SKA-Mid,SKA-Mid dish,330.00
+HH,AVN,Hartebeesthoek 26 m,650.00
+KU,AVN,"Kuntunse, Ghana",330.00
+NA,AVN,"AVN, Namibia",330.00
+BW,AVN,"AVN, Botswana",330.00
+ML,AVN,"AVN, Kenya",330.00

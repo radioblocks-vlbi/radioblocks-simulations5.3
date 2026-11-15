@@ -1,0 +1,8 @@
+/* Wider content area for the large figure panels */
+.md-grid { max-width: 1440px; }
+.md-typeset figure img { border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px; }
+.md-typeset figcaption { max-width: 52rem; font-size: 0.7rem; }
+.md-typeset table:not([class]) { font-size: 0.68rem; }
+/* "array" badges */
+.array-badge { display: inline-block; padding: 0 .45em; border-radius: .3em; font-weight: 600; font-size: .8em;
+  background: var(--md-accent-fg-color--transparent); border: 1px solid var(--md-accent-fg-color); }

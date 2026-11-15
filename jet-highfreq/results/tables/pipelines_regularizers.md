@@ -1,0 +1,20 @@
+| pipeline | round | data terms (weight) | regularizers (weight) | maxit | blur_frac | self-cal before round | status | role / why |
+|---|---|---|---|---|---|---|---|---|
+| pipeline_3rounds | 1 | cphase=100; logcamp=50 | Entropy (simple)=10; Total flux (flux)=10000000.0; Centre of mass (cm)=50 | 300 | 0.0 | none | CHOSEN | CHOSEN. Used for scenarios A, B and C (Sections 8-9). Self-calibrates to its own previous image, never to the truth; closure-only first round, then bispectrum + amplitudes, total variation in the last round to refine the edges. Same prior, rounds and weights for the three scenarios so they are comparable. |
+| pipeline_3rounds | 2 | bs=100; amp=50 | Entropy (simple)=10; Total flux (flux)=100000.0; Centre of mass (cm)=50 | 300 | 1.0 | phase only to own image | CHOSEN |  |
+| pipeline_3rounds | 3 | bs=100; amp=50 | Total variation (tv)=1; Total flux (flux)=100000.0; Centre of mass (cm)=50 | 300 | 0.5 | amp+phase to own image | CHOSEN |  |
+| pipeline_oracle | 1 | bs=100 | Entropy (simple)=10; Total flux (flux)=100000.0; Centre of mass (cm)=50 | 300 | 0.0 | none |  | Reference (best case). Same structure but self-calibrates to the true model; not realistic, only shows the cost of not knowing the source. |
+| pipeline_oracle | 2 | bs=100; amp=50 | Entropy (simple)=10; Total flux (flux)=100000.0; Centre of mass (cm)=50 | 300 | 1.0 | amp+phase to TRUE model |  |  |
+| pipeline_oracle | 3 | bs=100; amp=50 | Total variation (tv)=1; Total flux (flux)=100000.0; Centre of mass (cm)=50 | 300 | 0.5 | none |  |  |
+| closures_only (Section 10) | 1 | cphase=100; logcamp=50 | Entropy (simple)=10; Total flux (flux)=10000000.0; Centre of mass (cm)=50 | 300 | 0.0 | none |  | Baseline. Closure quantities only, no calibration at all. |
+| closures_only (Section 10) | 2 | cphase=100; logcamp=50 | Total variation (tv)=1; Total flux (flux)=10000000.0; Centre of mass (cm)=50 | 300 | 1.0 | none |  |  |
+| closures_only (Section 10) | 3 | cphase=100; logcamp=50 | Total variation (tv)=1; Total flux (flux)=10000000.0; Centre of mass (cm)=50 | 300 | 0.5 | none |  |  |
+| closure_rounds_handson | 1 | bs=100 | Entropy (simple)=10; Total flux (flux)=100000.0; Centre of mass (cm)=50 | 60 | 0.0 | none |  | Reference. Closure strategy of the ehtim hands-on, on oracle-calibrated data (row 'C hands-on rounds'). |
+| closure_rounds_handson | 2 | amp=50; cphase=100 | Total variation (tv)=1; Total flux (flux)=100000.0; Centre of mass (cm)=50 | 80 | 1.0 | none |  |  |
+| closure_rounds_handson | 3 | cphase=100; logcamp=50 | Total variation (tv)=10; Total flux (flux)=100000.0; Centre of mass (cm)=50 | 100 | 0.5 | calibrated data (oracle) |  |  |
+| vis_rounds | 1 | vis=100 | Entropy (simple)=10; Total flux (flux)=100000.0; Centre of mass (cm)=50 | 60 | 0.0 | none |  | Reference. Fits raw visibilities directly (rows 'B/C raw visibilities'); no calibration, expected to fail with gain/phase errors. |
+| vis_rounds | 2 | vis=100 | Total variation (tv)=1; Total flux (flux)=100000.0; Centre of mass (cm)=50 | 180 | 1.0 | none |  |  |
+
+Shared settings: prior = Gaussian of FWHM 10.80 mas; grid 96x96 over 27.0 mas; regularizer weights w_simple=10, w_tv=1; flux/cm weights {'flux': 100000.0, 'cm': 50} (closure-only rounds: {'flux': 10000000.0, 'cm': 50}); self-cal before round 2: phase; final restoring beam = fitted dirty beam (uniform weighting).
+
+Why pipeline_3rounds is the chosen one: it is the only realistic pipeline that needs no knowledge of the truth and no pre-calibrated data, it is the one reported for A, B and C, and Section 10 compares it with the closures-only baseline and the oracle.

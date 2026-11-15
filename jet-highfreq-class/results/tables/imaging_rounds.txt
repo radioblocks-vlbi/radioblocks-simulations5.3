@@ -1,0 +1,7 @@
+jet_closure_rounds:
+  round 1: {'data_term': {'bs': 100}, 'reg_term': {'simple': 10, 'flux': 1000, 'cm': 50}, 'maxit': 150}
+  round 2: {'data_term': {'amp': 50, 'cphase': 100}, 'reg_term': {'tv': 1, 'flux': 1000, 'cm': 50}, 'maxit': 200, 'blur_frac': 1.0}
+  round 3: {'data_term': {'amp': 50, 'cphase': 100, 'logcamp': 50}, 'reg_term': {'tv': 10, 'flux': 1000, 'cm': 50}, 'maxit': 200, 'blur_frac': 0.5, 'switch_obs': 'cal'}
+jet_vis_rounds:
+  round 1: {'data_term': {'vis': 100}, 'reg_term': {'simple': 10, 'flux': 1000, 'cm': 50}, 'maxit': 60}
+  round 2: {'data_term': {'vis': 100}, 'reg_term': {'tv': 1, 'flux': 1000, 'cm': 50}, 'maxit': 180, 'blur_frac': 1.0}

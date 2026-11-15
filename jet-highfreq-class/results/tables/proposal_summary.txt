@@ -1,0 +1,19 @@
+VLBI feasibility summary
+========================
+Generated:            2026-11-12 14:58
+Array:                EVN + AVN + SKA-Mid (20 stations: 11 EVN, 4 SKA-Mid, 5 AVN)
+Observing frequency:  5.00 GHz
+Bandwidth:            256 MHz
+Observing window:     6h - 12h UTC
+Visibility points:    6376
+Beam FWHM (maj/min):  1961.1 / 874.4 uas
+Beam position angle:  90.7 deg
+Ideal (closures + hybrid)                        NRMSE=0.363  NXCORR=0.932  flux=1.01 Jy
+Scenario A (thermal only, closures + hybrid)     NRMSE=0.351  NXCORR=0.937  flux=1.01 Jy
+Scenario B (closures + hybrid self-cal)          NRMSE=0.303  NXCORR=0.955  flux=1.00 Jy
+Scenario B (raw visibilities)                    NRMSE=1.302  NXCORR=0.458  flux=0.02 Jy
+Scenario C (closures + hybrid self-cal)          NRMSE=0.397  NXCORR=0.920  flux=1.00 Jy
+Scenario C (raw visibilities)                    NRMSE=3.201  NXCORR=-0.009  flux=0.01 Jy
+Regularizer 'simple' (Scenario B)                NRMSE=0.478  NXCORR=0.876  flux=1.11 Jy
+Regularizer 'tv' (Scenario B)                    NRMSE=0.494  NXCORR=0.868  flux=1.10 Jy
+Regularizer 'tv2' (Scenario B)                   NRMSE=0.433  NXCORR=0.900  flux=1.10 Jy

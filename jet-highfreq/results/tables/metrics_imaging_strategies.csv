@@ -1,0 +1,10 @@
+pipeline,scenario,nrmse,nxcorr,total_flux_Jy
+Closures only (no self-cal),A,0.2400,0.9966,0.9986
+Closures only (no self-cal),B,0.2718,0.9948,0.9989
+Closures only (no self-cal),C,0.2748,0.9953,0.9986
+pipeline_3rounds,A,0.0929,0.9958,1.0039
+pipeline_3rounds,B,0.1170,0.9931,1.0282
+pipeline_3rounds,C,0.0849,0.9964,0.9633
+Oracle self-cal (reference),A,0.0727,0.9973,1.0046
+Oracle self-cal (reference),B,0.1028,0.9947,1.0050
+Oracle self-cal (reference),C,0.1108,0.9938,1.0061

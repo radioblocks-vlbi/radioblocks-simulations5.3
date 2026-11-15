@@ -1,0 +1,9 @@
+reconstruction,compact_flux_over_true,peak_offset_mas,dynamic_range,total_flux_Jy,nrmse,nxcorr
+A  3-round pipeline,1.0018,0.1730,2825.0968,1.0039,0.0929,0.9958
+B  3-round pipeline,1.0208,0.3480,1335.7317,1.0282,0.1170,0.9931
+C  3-round pipeline,0.9831,0.4637,2731.7650,0.9633,0.0849,0.9964
+C  after fringe-fit,1.0730,0.4347,1813.1304,1.0510,0.0893,0.9976
+C  oracle self-cal,1.0286,0.4770,2391.6879,1.0061,0.1108,0.9938
+C  hands-on rounds,0.9981,0.8712,726.5506,1.0571,0.1454,0.9903
+B  raw visibilities,0.0357,16.4038,38.5059,0.0756,18.4156,0.4964
+C  raw visibilities,0.0103,5.1626,162.2502,0.0073,87.9494,0.7124

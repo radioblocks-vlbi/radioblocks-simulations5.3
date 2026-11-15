@@ -1,0 +1,79 @@
+{
+  "N_DAYS": 43,
+  "IMAGING_DAY": 22,
+  "FRAMES_PER_DAY": 4.76,
+  "TIME_FACTOR": 1.0,
+  "SEED": 2026,
+  "RF_HZ": 5000000000.0,
+  "BW_HZ": 128000000.0,
+  "TINT_S": 12.0,
+  "TADV_S": 240.0,
+  "ELEVMIN": 10.0,
+  "WINDOW_HOURS": 6.0,
+  "MJD_START": 59050.0,
+  "OBSERVATION_FOV": 60000.0,
+  "NPIX": 256,
+  "SCENARIOS": {
+    "A": {
+      "label": "A: thermal only",
+      "ampcal": true,
+      "phasecal": true,
+      "gain_offset": 0.0,
+      "gainp": 0.0
+    },
+    "B": {
+      "label": "B: thermal+gain+phase",
+      "ampcal": false,
+      "phasecal": false,
+      "gain_offset": 0.15,
+      "gainp": 0.1
+    }
+  },
+  "TTYPE": "fast",
+  "IMAGING_ROUNDS": [
+    {
+      "data_term": {
+        "cphase": 50,
+        "amp": 50
+      },
+      "reg_term": {
+        "simple": 10,
+        "flux": 10000.0,
+        "cm": 50
+      },
+      "maxit": 150
+    },
+    {
+      "data_term": {
+        "cphase": 80,
+        "amp": 80
+      },
+      "reg_term": {
+        "tv": 0.05,
+        "l1": 0.01,
+        "flux": 10000.0,
+        "cm": 50
+      },
+      "maxit": 150,
+      "blur_frac": 0.3
+    },
+    {
+      "data_term": {
+        "cphase": 100,
+        "amp": 100,
+        "vis": 30
+      },
+      "reg_term": {
+        "tv": 0.05,
+        "l1": 0.01,
+        "flux": 10000.0,
+        "cm": 50
+      },
+      "maxit": 200,
+      "blur_frac": 0.2,
+      "selfcal": "phase"
+    }
+  ],
+  "PRIOR_FWHM_FRAC": 0.4,
+  "RESTORE_BLUR": 0.4
+}

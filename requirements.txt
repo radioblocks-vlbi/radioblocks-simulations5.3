@@ -1,0 +1,10 @@
+# Runtime requirements of the notebooks and of the campaign script
+ehtim==1.2.10
+numpy<2
+scipy
+matplotlib
+pandas
+astropy
+imageio            # GIFs of the binary-jet campaign script
+scikit-image       # optional: SSIM metric of the campaign script
+nbclient           # optional: run notebooks from the command line

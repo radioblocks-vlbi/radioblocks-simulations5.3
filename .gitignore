@@ -1,0 +1,14 @@
+# MkDocs build output
+site/
+__pycache__/
+.ipynb_checkpoints/
+
+# Outputs of new runs (the reference run of each case is committed in <case>/results/)
+*/notebook/data/
+*/notebook/results_*/
+*/notebook/results_*.zip
+*/notebook/binary_jet_results/
+*/notebook/binary_jet_results.zip
+*/notebook/jet_model.txt
+binary_jet_campaign_results/
+*/script/binary_jet_campaign_results/

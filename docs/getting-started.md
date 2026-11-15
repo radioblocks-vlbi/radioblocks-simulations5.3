@@ -1,0 +1,78 @@
+# Getting started
+
+## Requirements
+
+| Package | Version | Why |
+|---|---|---|
+| Python | 3.9–3.12 | `ehtim` 1.2.10 is tested on these versions |
+| `ehtim` | **1.2.10** | Every function signature used in the notebooks was checked against this version |
+| `numpy` | **< 2** | `ehtim` 1.2.10 uses the old NumPy C API |
+| `scipy`, `matplotlib`, `pandas`, `astropy` | recent | analysis, figures and tables |
+| `imageio` | recent | GIFs of the binary-jet campaign script |
+| `scikit-image` | optional | SSIM metric of the campaign script (the metric is skipped if it is missing) |
+| `pynfft` | optional | `--ttype nfft` in the campaign script; the notebooks never need it |
+
+```bash
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+```
+
+!!! note "The `No NFFT installed!` warning"
+    `ehtim` prints this warning on import when `pynfft` is missing. You can ignore it: the notebooks use `ttype='fast'` (FFT) for imaging and `ttype='direct'` (exact DFT) for the simulated data.
+
+## Running a notebook
+
+=== "Locally (Jupyter)"
+
+    ```bash
+    cd point-source-lowfreq/notebook      # or any other case
+    jupyter lab
+    ```
+    Run the notebook from its case's `notebook/` folder, top to bottom (*Run → Run All Cells*). Each notebook writes a `data/` folder and a results folder next to it, plus a zip file. The reference results of each case are in its `results/` folder and are not overwritten.
+
+=== "Google Colab"
+
+    1. Upload the notebook (*File → Upload notebook*).
+    2. For the two jet notebooks, upload `toy-model/jet_model.txt` of the case to the session files (the folder icon on the left). The notebooks stop with an error if the file is missing.
+    3. Run the first cell. If it installs `ehtim`, NumPy is downgraded: **restart the session once** (*Runtime → Restart session*) and run everything again from the top.
+    4. At the end, the results zip file is downloaded automatically.
+
+=== "Command line (no browser)"
+
+    ```bash
+    pip install nbclient
+    jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=7200 \
+        point-source-lowfreq/notebook/VLBI_ehtim_LBA6_SKALow_250MHz_ABC.ipynb --output LBA_executed.ipynb
+    ```
+
+## Run times (one CPU core)
+
+| Notebook | Time of the reference run |
+|---|---|
+| point-source-lowfreq | ~10 min |
+| point-source-highfreq | ~30 min |
+| jet-highfreq | ~50 min |
+| jet-highfreq-class | ~30 min |
+| binary-jet-highfreq, notebook | ~1 h 30 min (~40 min with `RUN_SELFCAL_TEST = False`) |
+| binary-jet-highfreq, script | **days** (see the [guide](binary-jet-highfreq/index.md#the-full-campaign-script)) |
+
+Most of the time goes into self-calibration and RML imaging with the 20-station EVN + AVN + SKA-Mid array, including the added self-calibration test of every notebook.
+
+## Reproducibility
+
+The thermal noise, the dTEC/delay screen of scenario C and the binary-jet prior perturbation use fixed seeds. The station **gain and phase errors** of scenarios B and C, however, are drawn by `ehtim` from seeds derived from Python's string hashing, which changes from one Python session to the next. Re-running a notebook therefore reproduces scenario A exactly, but B and C only statistically: the numbers of scenarios B and C quoted in the guides change by a few per cent from run to run. To fix them, start Jupyter with a fixed hash seed:
+
+```bash
+PYTHONHASHSEED=0 jupyter lab
+```
+
+## Outputs
+
+Every notebook ends with an **Export** section that collects everything in one folder (and zips it). The `results/` folder of each case holds the same structure for the reference run:
+
+| Folder | Content |
+|---|---|
+| `visibilities/` (the binary notebook calls it `uvfits/` in its own export) | the reference observation and every scenario as `.uvfits` (AIPS, CASA, Difmap) and `.txt` |
+| `figures/` | every figure of the notebook as `.png`, including the χ² convergence figures |
+| `images/` | the input model and every reconstruction as `.fits` |
+| `tables/` | metric tables, final χ² per round, regularizers and weights of every pipeline, SEFDs, scenario-C screen, array files and a `README.txt` |
