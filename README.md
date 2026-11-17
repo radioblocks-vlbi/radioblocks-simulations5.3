@@ -2,9 +2,9 @@
 
 Jupyter notebooks (and one campaign script) that simulate, corrupt, calibrate and image VLBI observations with [`eht-imaging`](https://github.com/achael/eht-imaging) 1.2.10, under the RADIOBLOCKS error scenarios A (thermal noise), B (+ gains and random phases) and C (+ a physical atmospheric screen: ionosphere + troposphere).
 
-**Every array includes an SKA telescope:** **LBA + SKA-Low** at 250 MHz and **EVN + AVN + SKA-Mid** at 5 GHz. The only array without SKA, the **EVN alone (no SKA)**, is used as a comparison and always labelled that way.
+**Contact:** questions, comments and collaboration requests are welcome at [radioblocks.vlbi@gmail.com](mailto:radioblocks.vlbi@gmail.com).
 
-📖 **User guide:** https://radioblocks-vlbi.github.io/radioblocks-vlbi-ehtim/
+**Every array includes an SKA telescope:** ...
 
 ## Cases
 
