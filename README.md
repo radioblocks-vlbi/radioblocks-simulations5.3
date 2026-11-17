@@ -4,7 +4,6 @@ Jupyter notebooks (and one campaign script) that simulate, corrupt, calibrate an
 
 **Contact:** questions, comments and collaboration requests are welcome at [radioblocks.vlbi@gmail.com](mailto:radioblocks.vlbi@gmail.com).
 
-**Every array includes an SKA telescope:** ...
 
 ## Cases
 
