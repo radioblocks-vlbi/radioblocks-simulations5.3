@@ -11,10 +11,10 @@ Jupyter notebooks (and one campaign script) that simulate, corrupt, calibrate an
 | Case | Array | Frequency | Source | Scenarios |
 |---|---|---|---|---|
 | [`point-source-lowfreq/`](point-source-lowfreq/) | LBA + SKA-Low | 250 MHz | circular Gaussian, 80 mas | A, B, C |
-| [`point-source-highfreq/`](point-source-highfreq/) | EVN + AVN + SKA-Mid | 5 GHz | circular Gaussian, 0.5 mas | A, B, C |
-| [`jet-highfreq/`](jet-highfreq/) | EVN + AVN + SKA-Mid | 5 GHz | relativistic jet | A, B, C |
-| [`jet-highfreq-class/`](jet-highfreq-class/) | EVN + AVN + SKA-Mid | 5 GHz | relativistic jet, hands-on class version | A, B, C |
-| [`binary-jet-highfreq/`](binary-jet-highfreq/) | EVN (no SKA) vs. EVN + AVN + SKA-Mid | 5 GHz | time-variable precessing jet (SS 433-like) | A, B |
+| [`point-source-midfreq/`](point-source-highfreq/) | EVN + AVN + SKA-Mid | 5 GHz | circular Gaussian, 0.5 mas | A, B, C |
+| [`jet-midfreq/`](jet-highfreq/) | EVN + AVN + SKA-Mid | 5 GHz | relativistic jet | A, B, C |
+| [`jet-midfreq-class/`](jet-highfreq-class/) | EVN + AVN + SKA-Mid | 5 GHz | relativistic jet, hands-on class version | A, B, C |
+| [`binary-jet-midfreq/`](binary-jet-highfreq/) | EVN (no SKA) vs. EVN + AVN + SKA-Mid | 5 GHz | time-variable precessing jet (SS 433-like) | A, B |
 
 Every case folder has the same layout:
 
