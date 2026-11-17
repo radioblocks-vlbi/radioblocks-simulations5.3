@@ -1,6 +1,6 @@
 # binary-jet-highfreq
 
-**Binary jet, high frequency: EVN (no SKA) vs. EVN + AVN + SKA-Mid, 5 GHz**
+**Binary jet, mid frequency: EVN (no SKA) vs. EVN + AVN + SKA-Mid, 5 GHz**
 
 | | |
 |---|---|
