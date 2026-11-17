@@ -1,11 +1,11 @@
 # EVN + AVN + SKA-Mid at 5 GHz: compact Gaussian source
 
-**Case folder:** `point-source-highfreq/` · **Notebook:** `notebook/VLBI_ehtim_EVN_AVN_SKAMid_5GHz_Gaussian_ABC.ipynb` · **Toy model:** `toy-model/` (built by the notebook; FITS and text copies) · **Reference results:** `results/` · **Run time:** ~30 min
+**Case folder:** `point-source-midfreq/` · **Notebook:** `notebook/VLBI_ehtim_EVN_AVN_SKAMid_5GHz_Gaussian_ABC.ipynb` · **Toy model:** `toy-model/` (built by the notebook; FITS and text copies) · **Reference results:** `results/` · **Run time:** ~30 min
 
 !!! important "Array: EVN + AVN + SKA-Mid (20 stations), SKA-Mid included in every simulation"
     11 EVN stations, **4 SKA-Mid elements** (`S5`, the phased-up SKA-Mid core, and the dishes `S004`, `S008`, `S133`) and 5 AVN stations. The **EVN alone (no SKA)** is simulated once, only for the uv-coverage comparison of Section 3. See [Arrays](../concepts/arrays.md).
 
-This notebook runs the A/B/C test of the project on the simplest possible source at 5 GHz: a **compact, centred circular Gaussian** (0.5 mas FWHM, 1 Jy, RA 12 h, Dec +4°), the kind of source used as a VLBI calibrator. Because its visibility is known analytically and its closure phases are exactly zero, any departure from the ideal curves is an error, not structure. It has the same structure as the [jet notebook](../jet-highfreq/index.md) and as the [LBA + SKA-Low notebook](../point-source-lowfreq/index.md), with which it shares the scenarios, the pipeline and the screen of scenario C.
+This notebook runs the A/B/C test of the project on the simplest possible source at 5 GHz: a **compact, centred circular Gaussian** (0.5 mas FWHM, 1 Jy, RA 12 h, Dec +4°), the kind of source used as a VLBI calibrator. Because its visibility is known analytically and its closure phases are exactly zero, any departure from the ideal curves is an error, not structure. It has the same structure as the [jet notebook](../jet-midfreq/index.md) and as the [LBA + SKA-Low notebook](../point-source-lowfreq/index.md), with which it shares the scenarios, the pipeline and the screen of scenario C.
 
 ## Quick start
 
@@ -191,7 +191,7 @@ Reference run: one CPU core, **~30 min**. Array: **EVN + AVN + SKA-Mid** (20 sta
 * Closures plus iterative self-calibration remove antenna-based errors completely: **B is as good as A**.
 * For a source **smaller than the beam**, the closure quantities alone recover the **phases** (2–3.5° after self-calibration to the closures-only image) but **not the amplitudes**: amplitude self-calibration to that image introduces 28–59% errors. Use a closure image first for a **phase-only** self-calibration.
 * The pipeline image is a good self-calibration model (1% / 0.3° in B; re-imaging gives nrmse 0.016).
-* Scenario C at 5 GHz is limited by the **delay** part of the screen, which a fringe fit removes.
+* Scenario C at 5 GHz is limited by the **delay** (tropospheric) part of the screen, which a fringe fit removes.
 
 ## Troubleshooting
 

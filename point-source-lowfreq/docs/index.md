@@ -57,9 +57,9 @@ The error-free reference observation (`obs_ideal`), plus a count of the baseline
 
 `obs_B`.
 
-## 6. Scenario C: thermal noise + gain errors + structured ionospheric / delay phase error
+## 6. Scenario C: thermal noise + gain errors + structured atmospheric phase errors (ionosphere + troposphere)
 
-The dTEC and delay screen (`make_screens`) and its in-band and in-scan averaging (`apply_iono`); see [Scenarios](../concepts/scenarios.md#scenario-c-a-physical-ionospheric-and-delay-screen).
+The atmospheric screen, dTEC (ionosphere) and delay (troposphere) (`make_screens`) and its in-band and in-scan averaging (`apply_iono`); see [Scenarios](../concepts/scenarios.md#scenario-c).
 
 | Parameter | Default | Meaning |
 |---|---|---|

@@ -1,5 +1,5 @@
 # Sub-site of the case, included in the root mkdocs.yml by the monorepo plugin.
-site_name: jet-highfreq
+site_name: jet-midfreq-class
 docs_dir: docs
 nav:
   - Guide: index.md

@@ -1,6 +1,6 @@
-# binary-jet-highfreq
+# binary-jet-midfreq
 
-**Binary jet, high frequency: EVN (no SKA) vs. EVN + AVN + SKA-Mid, 5 GHz**
+**Binary jet, mid frequency: EVN (no SKA) vs. EVN + AVN + SKA-Mid, 5 GHz**
 
 | | |
 |---|---|
@@ -35,4 +35,4 @@ A new run writes its outputs next to the notebook (`notebook/binary_jet_results/
 
 ## Guide
 
-[`docs/index.md`](docs/index.md), also on the documentation website under *Cases → binary-jet-highfreq*.
+[`docs/index.md`](docs/index.md), also on the documentation website under *Cases → binary-jet-midfreq*.

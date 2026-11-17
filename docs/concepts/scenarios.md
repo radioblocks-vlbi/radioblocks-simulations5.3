@@ -7,7 +7,7 @@ All notebooks use the RADIOBLOCKS scenario definitions (the same as the `ehtim` 
 | Reference | none | `add_th_noise=False`, `ampcal=True`, `phasecal=True` |
 | **A** | thermal noise only | `add_th_noise=True`, `ampcal=True`, `phasecal=True` |
 | **B** | thermal noise + gain errors + generic (`ehtim` random) phase errors | `add_th_noise=True`, `ampcal=False` with `gain_offset=0.15`, `gainp=0.10`, `phasecal=False` |
-| **C** | thermal noise + gain errors + structured ionospheric (dTEC) and delay phase errors | same noise and gains as B, `phasecal=True`, plus a physical phase screen |
+| **C** | thermal noise + gain errors + structured atmospheric phase errors: ionospheric (dTEC) and tropospheric (delay) | same noise and gains as B, `phasecal=True`, plus a physical phase screen |
 
 The gain-error budget (`gain_offset = 0.15`, a constant 15% offset per station; `gainp = 0.10`, a 10% gain fluctuation) is the same in every notebook, so the scenarios are directly comparable across arrays and frequencies.
 
@@ -19,16 +19,16 @@ Stations are perfectly calibrated. The only corruption is receiver noise, whose 
 
 `ehtim` multiplies each visibility by complex station gains: amplitude errors of the size set by `gain_offset` and `gainp`, and, with `phasecal=False`, an independent random phase per station and time stamp. These errors are **antenna-based**: they cancel exactly in closure phases and closure amplitudes, and self-calibration can solve for them.
 
-## Scenario C: a physical ionospheric and delay screen
+## Scenario C: a physical atmospheric screen (ionosphere + troposphere) {#scenario-c}
 
-Scenario C keeps the noise and gains of B but replaces the random phases (`phasecal=True`) by a screen with a physical frequency and time dependence. For station *i*:
+Scenario C keeps the noise and gains of B but replaces the random phases (`phasecal=True`) by an **atmospheric** phase screen with a physical frequency and time dependence. It has two terms: a dispersive one from the **ionosphere** and a non-dispersive one from the **troposphere** (which also absorbs residual clock errors). For station *i*:
 
 $$
 \phi_i(t,\nu)=\frac{K\,\mathrm{dTEC}_i(t)}{\nu}+2\pi\nu\,\tau_i(t),\qquad K=8.448\times10^{9}\ \mathrm{rad\,Hz\,TECU^{-1}} .
 $$
 
 * **dTEC** (dispersive, ionospheric term): a static per-station offset (`dtec0_sigma` = 0.3 TECU) plus a random walk (`dtec_rate` = 0.02 TECU/√min).
-* **Delay** τ (non-dispersive term, e.g. clock and troposphere): a static offset (`tau0_sigma_ns` = 0.5 ns) plus a random walk (`tau_rate_ns` = 0.01 ns/√min).
+* **Delay** τ (non-dispersive, tropospheric term; it also absorbs clock errors): a static offset (`tau0_sigma_ns` = 0.5 ns) plus a random walk (`tau_rate_ns` = 0.01 ns/√min).
 
 Each visibility is multiplied by
 
@@ -46,7 +46,7 @@ averaged over `n_chan` = 32 channels across the band and over sub-integrations o
 | | 250 MHz (LBA + SKA-Low) | 5 GHz (EVN + AVN + SKA-Mid) |
 |---|---|---|
 | Phase of 1 TECU | 33.8 rad | 1.7 rad |
-| Dominant in-band decorrelation | **ionosphere** (dTEC) | **delay** |
+| Dominant in-band decorrelation | **ionosphere** (dTEC) | **troposphere** (delay) |
 | What would fix it in practice | dispersive fringe fit / ionospheric calibration | standard fringe fit (delay and rate) |
 
 The 5 GHz notebooks therefore also image scenario C after an **idealised fringe fit** (`obs_Cff`): the scan-average delay and dTEC, and their linear drift within the scan, are removed per baseline before the averaging. It is an extra reference, not a fourth scenario.

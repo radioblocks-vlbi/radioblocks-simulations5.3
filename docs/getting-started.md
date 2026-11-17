@@ -50,11 +50,11 @@ pip install -r requirements.txt
 | Notebook | Time of the reference run |
 |---|---|
 | point-source-lowfreq | ~10 min |
-| point-source-highfreq | ~30 min |
-| jet-highfreq | ~50 min |
-| jet-highfreq-class | ~30 min |
-| binary-jet-highfreq, notebook | ~1 h 30 min (~40 min with `RUN_SELFCAL_TEST = False`) |
-| binary-jet-highfreq, script | **days** (see the [guide](binary-jet-highfreq/index.md#the-full-campaign-script)) |
+| point-source-midfreq | ~30 min |
+| jet-midfreq | ~50 min |
+| jet-midfreq-class | ~30 min |
+| binary-jet-midfreq, notebook | ~1 h 30 min (~40 min with `RUN_SELFCAL_TEST = False`) |
+| binary-jet-midfreq, script | **days** (see the [guide](binary-jet-midfreq/index.md#the-full-campaign-script)) |
 
 Most of the time goes into self-calibration and RML imaging with the 20-station EVN + AVN + SKA-Mid array, including the added self-calibration test of every notebook.
 

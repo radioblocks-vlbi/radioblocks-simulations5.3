@@ -1,11 +1,11 @@
 # EVN + AVN + SKA-Mid at 5 GHz: relativistic jet
 
-**Case folder:** `jet-highfreq/` · **Notebook:** `notebook/VLBI_ehtim_EVN_AVN_SKAMid_5GHz_jet_ABC.ipynb` · **Toy model:** `toy-model/jet_model.txt` · **Reference results:** `results/` · **Run time:** ~50 min
+**Case folder:** `jet-midfreq/` · **Notebook:** `notebook/VLBI_ehtim_EVN_AVN_SKAMid_5GHz_jet_ABC.ipynb` · **Toy model:** `toy-model/jet_model.txt` · **Reference results:** `results/` · **Run time:** ~50 min
 
 !!! important "Array: EVN + AVN + SKA-Mid (20 stations), SKA-Mid included in every simulation"
     11 EVN stations, **4 SKA-Mid elements** (`S5`, the phased-up SKA-Mid core, and the dishes `S004`, `S008`, `S133`) and 5 AVN stations. The **EVN alone (no SKA)** is simulated once, only for the uv-coverage comparison of Section 3. See [Arrays](../concepts/arrays.md).
 
-This notebook tests the self-calibration + closure-quantity imaging pipeline on a **resolved, asymmetric source**, a simulated relativistic jet, observed at 5 GHz (C-band) with the EVN + AVN + SKA-Mid, under scenarios A, B and C. It is the hardest of the static cases: the jet has non-zero closure phases, a core and knots spread over ~15 mas, and a dynamic range of several hundred. Its companion is the [hands-on class notebook](../jet-highfreq-class/index.md) on the same source; the [Gaussian notebook](../point-source-highfreq/index.md) uses the same array with a compact source.
+This notebook tests the self-calibration + closure-quantity imaging pipeline on a **resolved, asymmetric source**, a simulated relativistic jet, observed at 5 GHz (C-band) with the EVN + AVN + SKA-Mid, under scenarios A, B and C. It is the hardest of the static cases: the jet has non-zero closure phases, a core and knots spread over ~15 mas, and a dynamic range of several hundred. Its companion is the [hands-on class notebook](../jet-midfreq-class/index.md) on the same source; the [Gaussian notebook](../point-source-midfreq/index.md) uses the same array with a compact source.
 
 ## Quick start
 

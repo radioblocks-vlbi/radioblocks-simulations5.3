@@ -1,6 +1,6 @@
-# jet-highfreq
+# jet-midfreq
 
-**Jet, high frequency: EVN + AVN + SKA-Mid, 5 GHz**
+**Jet, mid frequency: EVN + AVN + SKA-Mid, 5 GHz**
 
 | | |
 |---|---|
@@ -31,4 +31,4 @@ A new run writes its outputs next to the notebook (`notebook/results_*/` and a z
 
 ## Guide
 
-[`docs/index.md`](docs/index.md), also on the documentation website under *Cases → jet-highfreq*.
+[`docs/index.md`](docs/index.md), also on the documentation website under *Cases → jet-midfreq*.

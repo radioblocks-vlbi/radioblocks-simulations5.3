@@ -1,11 +1,11 @@
 # Hands-on class: 5 GHz jet with the EVN + AVN + SKA-Mid
 
-**Case folder:** `jet-highfreq-class/` · **Notebook:** `notebook/VLBI_ehtim_handson_ERIS2026_jet_5GHz_class.ipynb` · **Toy model:** `toy-model/jet_model.txt` · **Reference results:** `results/` · **Run time:** ~30 min
+**Case folder:** `jet-midfreq-class/` · **Notebook:** `notebook/VLBI_ehtim_handson_ERIS2026_jet_5GHz_class.ipynb` · **Toy model:** `toy-model/jet_model.txt` · **Reference results:** `results/` · **Run time:** ~30 min
 
 !!! important "Array: EVN + AVN + SKA-Mid (20 stations), SKA-Mid included in every simulation"
     Every simulation, calibration and image of the class uses the **EVN + AVN + SKA-Mid**: 11 EVN stations, **4 SKA-Mid elements** (`S5`, the phased-up SKA-Mid core with an SEFD of 3.1 Jy, and the dishes `S004`, `S008`, `S133`) and 5 AVN stations. The **EVN alone (no SKA)** is used only once, as a comparison, in the uv-coverage plot of Section 2.3.
 
-This is the **teaching version** of the [5 GHz jet case](../jet-highfreq/index.md) (ERIS 2026 VLBI training session). It walks through the same physics with more explanation, more intermediate plots and controls that participants are invited to change. Compared with the delivery notebook it:
+This is the **teaching version** of the [5 GHz jet case](../jet-midfreq/index.md) (ERIS 2026 VLBI training session). It walks through the same physics with more explanation, more intermediate plots and controls that participants are invited to change. Compared with the delivery notebook it:
 
 * explains every concept as it appears (uv-coverage, resolved-out flux, closure quantities, dirty and clean beams, regularizers);
 * uses a simpler imaging recipe (`bs` → `amp` + `cphase` → hybrid round on self-calibrated data) and self-calibrates to the true model for illustration;

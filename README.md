@@ -1,6 +1,6 @@
 # RADIOBLOCKS VLBI simulations with `ehtim`
 
-Jupyter notebooks (and one campaign script) that simulate, corrupt, calibrate and image VLBI observations with [`eht-imaging`](https://github.com/achael/eht-imaging) 1.2.10, under the RADIOBLOCKS error scenarios A (thermal noise), B (+ gains and random phases) and C (+ a physical ionospheric/delay screen).
+Jupyter notebooks (and one campaign script) that simulate, corrupt, calibrate and image VLBI observations with [`eht-imaging`](https://github.com/achael/eht-imaging) 1.2.10, under the RADIOBLOCKS error scenarios A (thermal noise), B (+ gains and random phases) and C (+ a physical atmospheric screen (ionosphere + troposphere)).
 
 **Every array includes an SKA telescope:** **LBA + SKA-Low** at 250 MHz and **EVN + AVN + SKA-Mid** at 5 GHz. The only array without SKA, the **EVN alone (no SKA)**, is used as a comparison and always labelled that way.
 
@@ -11,10 +11,10 @@ Jupyter notebooks (and one campaign script) that simulate, corrupt, calibrate an
 | Case | Array | Frequency | Source | Scenarios |
 |---|---|---|---|---|
 | [`point-source-lowfreq/`](point-source-lowfreq/) | LBA + SKA-Low | 250 MHz | circular Gaussian, 80 mas | A, B, C |
-| [`point-source-highfreq/`](point-source-highfreq/) | EVN + AVN + SKA-Mid | 5 GHz | circular Gaussian, 0.5 mas | A, B, C |
-| [`jet-highfreq/`](jet-highfreq/) | EVN + AVN + SKA-Mid | 5 GHz | relativistic jet | A, B, C |
-| [`jet-highfreq-class/`](jet-highfreq-class/) | EVN + AVN + SKA-Mid | 5 GHz | relativistic jet, hands-on class version | A, B, C |
-| [`binary-jet-highfreq/`](binary-jet-highfreq/) | EVN (no SKA) vs. EVN + AVN + SKA-Mid | 5 GHz | time-variable precessing jet (SS 433-like) | A, B |
+| [`point-source-midfreq/`](point-source-midfreq/) | EVN + AVN + SKA-Mid | 5 GHz | circular Gaussian, 0.5 mas | A, B, C |
+| [`jet-midfreq/`](jet-midfreq/) | EVN + AVN + SKA-Mid | 5 GHz | relativistic jet | A, B, C |
+| [`jet-midfreq-class/`](jet-midfreq-class/) | EVN + AVN + SKA-Mid | 5 GHz | relativistic jet, hands-on class version | A, B, C |
+| [`binary-jet-midfreq/`](binary-jet-midfreq/) | EVN (no SKA) vs. EVN + AVN + SKA-Mid | 5 GHz | time-variable precessing jet (SS 433-like) | A, B |
 
 Every case folder has the same layout:
 
@@ -38,7 +38,7 @@ Shared documentation (home page, installation, arrays, scenarios, imaging pipeli
 
 ```bash
 pip install -r requirements.txt          # ehtim 1.2.10 needs numpy<2
-cd jet-highfreq/notebook                 # or any other case
+cd jet-midfreq/notebook                 # or any other case
 jupyter lab
 ```
 
@@ -48,7 +48,7 @@ A new run writes its outputs next to the notebook; the reference results in `<ca
 
 The site is built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/). The root `mkdocs.yml` merges the root `docs/` with the `docs/` of every case through the [monorepo plugin](https://github.com/backstage/mkdocs-monorepo-plugin), and `.github/workflows/docs.yml` publishes it.
 
-1. Replace `OWNER` in `mkdocs.yml` and in this README with your GitHub user or organisation.
+1. The site address uses the GitHub account `radioblocks-vlbi`; if the repository moves to another account, change it in `mkdocs.yml` and in this README.
 2. Push to `main`.
 3. In the repository, open **Settings → Pages** and set **Source: GitHub Actions**. Every push to `main` then rebuilds and publishes the site.
 

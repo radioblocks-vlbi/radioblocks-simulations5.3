@@ -2,7 +2,7 @@ site_name: RADIOBLOCKS VLBI simulations with ehtim
 site_description: >-
   User guides for the RADIOBLOCKS VLBI simulation cases: LBA + SKA-Low at 250 MHz, EVN + AVN + SKA-Mid at 5 GHz
   (point source, relativistic jet, hands-on class) and the time-variable binary jet.
-# Replace OWNER with your GitHub user or organisation name (also in repo_url below).
+# GitHub account that hosts the repository (also in repo_url below); change it if the repository moves.
 site_url: https://radioblocks-vlbi.github.io/radioblocks-vlbi-ehtim/
 repo_url: https://github.com/radioblocks-vlbi/radioblocks-vlbi-ehtim
 repo_name: radioblocks-vlbi-ehtim
@@ -76,8 +76,8 @@ nav:
       - Imaging pipeline and diagnostics: concepts/imaging.md
   - Cases:
       - point-source-lowfreq (LBA + SKA-Low, 250 MHz): '!include ./point-source-lowfreq/mkdocs.yml'
-      - point-source-highfreq (EVN + AVN + SKA-Mid, 5 GHz): '!include ./point-source-highfreq/mkdocs.yml'
-      - jet-highfreq (EVN + AVN + SKA-Mid, 5 GHz): '!include ./jet-highfreq/mkdocs.yml'
-      - jet-highfreq-class (hands-on class): '!include ./jet-highfreq-class/mkdocs.yml'
-      - binary-jet-highfreq (EVN (no SKA) vs. EVN + AVN + SKA-Mid): '!include ./binary-jet-highfreq/mkdocs.yml'
+      - point-source-midfreq (EVN + AVN + SKA-Mid, 5 GHz): '!include ./point-source-midfreq/mkdocs.yml'
+      - jet-midfreq (EVN + AVN + SKA-Mid, 5 GHz): '!include ./jet-midfreq/mkdocs.yml'
+      - jet-midfreq-class (hands-on class): '!include ./jet-midfreq-class/mkdocs.yml'
+      - binary-jet-midfreq (EVN (no SKA) vs. EVN + AVN + SKA-Mid): '!include ./binary-jet-midfreq/mkdocs.yml'
   - References: references.md
