@@ -1,6 +1,6 @@
-# point-source-highfreq
+# point-source-midfreq
 
-**Point source, high frequency: EVN + AVN + SKA-Mid, 5 GHz**
+**Point source, mid frequency: EVN + AVN + SKA-Mid, 5 GHz**
 
 | | |
 |---|---|
