@@ -5,10 +5,10 @@
     |---|---|---|---|
     | **LBA + SKA-Low** | 6 LBA antennas + SKA-Low (7) | **SKA-Low** (tied array) | every simulation of the 250 MHz notebook |
     | **EVN + AVN + SKA-Mid** | 11 EVN + **4 SKA-Mid** + 5 AVN (20) | **SKA-Mid** (`S5`, `S004`, `S008`, `S133`) | every simulation of the 5 GHz Gaussian, jet and class notebooks |
-    | **EVN + AVN + SKA-Mid** (binary case) | 10 EVN + **4 SKA-Mid** + 5 AVN (19) | **SKA-Mid** (`S5`, `S004`, `S008`, `S133`) | the binary-jet notebook and script |
-    | **EVN alone (no SKA)** | 11 EVN (10 in the binary case) | none | only the uv-coverage comparison at 5 GHz, and the comparison array of the binary-jet case |
+    | **EVN + AVN + SKA-Mid** (X-ray binary case) | 10 EVN + **4 SKA-Mid** + 5 AVN (19) | **SKA-Mid** (`S5`, `S004`, `S008`, `S133`) | the X-ray binary notebook and scripts |
+    | **EVN alone (no SKA)** | 11 EVN (10 in the X-ray binary case) | none | only the uv-coverage comparison at 5 GHz, and the comparison array of the X-ray binary case |
 
-    In the campaign script's CSV files and folder names the two binary-case arrays keep the short tags `EVN` and `EVN+AVN` / `EVN_AVN`, so that runs started with earlier versions can be resumed. **`EVN+AVN` always includes SKA-Mid.**
+    In the campaign script's CSV files and folder names the two X-ray binary arrays keep the short tags `EVN` and `EVN+AVN` / `EVN_AVN`, so that runs started with earlier versions can be resumed. **`EVN+AVN` always includes SKA-Mid.**
 
 ## LBA + SKA-Low (250 MHz) {#lba-skalow}
 
@@ -49,7 +49,7 @@ Every baseline to SKA-Low is therefore far more sensitive than the LBA–LBA bas
 | **SKA-Mid** | **`S004`** | SKA-Mid dish | 330 (assumed) |
 | **SKA-Mid** | **`S008`** | SKA-Mid dish | 330 (assumed) |
 | **SKA-Mid** | **`S133`** | SKA-Mid dish | 330 (assumed) |
-| AVN | `HH` | Hartebeesthoek 26 m (South Africa) | 650 (700 in the binary case) |
+| AVN | `HH` | Hartebeesthoek 26 m (South Africa) | 650 (700 in the X-ray binary case) |
 | AVN | `KU` | Kuntunse (Ghana) | 330 (assumed) |
 | AVN | `NA` | Namibia | 330 (assumed) |
 | AVN | `BW` | Botswana | 330 (assumed) |
@@ -60,7 +60,7 @@ Every baseline to SKA-Low is therefore far more sensitive than the LBA–LBA bas
 * The phased SKA-Mid core `S5` dominates the sensitivity of every baseline it is part of (baselines `S5`–`EF` or `S5`–`T6` have SNRs of thousands), while baselines between two small dishes are the noisiest.
 * The north–south baselines between Europe and southern Africa fill the region of the uv-plane where the **EVN alone (no SKA)** has poor coverage. The 5 GHz notebooks show the two coverages side by side.
 
-In the binary-jet case the EVN has 10 stations (no Tianma) and the African part is the same (4 SKA-Mid + 5 AVN), 19 stations in total. The notebook and the script compare the **EVN (no SKA)** with the **EVN + AVN + SKA-Mid**; the differences between them are the combined effect of the AVN **and** SKA-Mid.
+In the X-ray binary case the EVN has 10 stations (no Tianma) and the African part is the same (4 SKA-Mid + 5 AVN), 19 stations in total. The notebook and the script compare the **EVN (no SKA)** with the **EVN + AVN + SKA-Mid**; the differences between them are the combined effect of the AVN **and** SKA-Mid.
 
 ## Array file format
 

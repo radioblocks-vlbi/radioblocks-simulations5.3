@@ -74,7 +74,7 @@ The final values are also exported as tables (`chi2_final_per_round*.csv`).
 
 ## Self-calibration to the final images: how well do the closures work? {#selfcal-test}
 
-Every notebook ends its imaging with an added test. For each scenario (and, in the binary case, each array), the **raw** data are self-calibrated (amplitude and phase, one gain per station and scan or time stamp) to two models:
+Every notebook ends its imaging with an added test. For each scenario (and, in the X-ray binary case, each array), the **raw** data are self-calibrated (amplitude and phase, one gain per station and scan or time stamp) to two models:
 
 1. a **closures-only image** (`cphase` + `logcamp` only, no calibration at any stage), which tests what the closure quantities alone recover;
 2. the **final image of the pipeline** (the last image generated).

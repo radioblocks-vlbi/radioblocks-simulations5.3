@@ -1,11 +1,12 @@
 site_name: RADIOBLOCKS VLBI simulations with ehtim
 site_description: >-
   User guides for the RADIOBLOCKS VLBI simulation cases: LBA + SKA-Low at 250 MHz, EVN + AVN + SKA-Mid at 5 GHz
-  (point source, relativistic jet, hands-on class) and the time-variable binary jet.
+  (point source, relativistic jet, hands-on class) and the time-variable jet of an X-ray binary.
 # GitHub account that hosts the repository (also in repo_url below); change it if the repository moves.
 site_url: https://radioblocks-vlbi.github.io/radioblocks-vlbi-ehtim/
 repo_url: https://github.com/radioblocks-vlbi/radioblocks-vlbi-ehtim
 repo_name: radioblocks-vlbi-ehtim
+copyright: "Copyright &copy; 2026 RADIOBLOCKS · Distributed under the GNU GPL v3.0 · Contact: radioblocks.vlbi@gmail.com"
 
 theme:
   name: material
@@ -79,5 +80,5 @@ nav:
       - point-source-midfreq (EVN + AVN + SKA-Mid, 5 GHz): '!include ./point-source-midfreq/mkdocs.yml'
       - jet-midfreq (EVN + AVN + SKA-Mid, 5 GHz): '!include ./jet-midfreq/mkdocs.yml'
       - jet-midfreq-class (hands-on class): '!include ./jet-midfreq-class/mkdocs.yml'
-      - binary-jet-midfreq (EVN (no SKA) vs. EVN + AVN + SKA-Mid): '!include ./binary-jet-midfreq/mkdocs.yml'
+      - xray-binary-jet-midfreq (X-ray binary, EVN (no SKA) vs. EVN + AVN + SKA-Mid): '!include ./xray-binary-jet-midfreq/mkdocs.yml'
   - References: references.md

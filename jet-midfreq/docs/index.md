@@ -68,9 +68,9 @@ Loads `jet_model.txt` (an `ehtim` text image: 64 Ã— 64 pixels over 18 mas, 281 Â
 
 `obs_B`: `ampcal=False` with `gain_offset`, `gainp`, and `phasecal=False` (random per-station phases). See [Scenarios](../concepts/scenarios.md#scenario-b-gains-and-random-phases).
 
-## 6. Scenario C: thermal noise + gain errors + structured atmospheric phase errors (ionosphere + troposphere)
+## 6. Scenario C: thermal noise + gain errors + structured atmospheric corruptions (ionospheric + tropospheric)
 
-Builds the per-station dTEC and delay screen (`make_screens`) and applies it with in-band and in-scan averaging (`apply_iono`); the thermal noise is added after the screen. The screen parameters are those of the 250 MHz LBA + SKA-Low notebook, so the two notebooks isolate the effect of frequency.
+Builds the atmospheric corruptions of each station, an ionospheric dTEC screen and a tropospheric delay screen (`make_screens`), and applies them with in-band and in-scan averaging (`apply_iono`, which applies both parts despite its name); the thermal noise is added after them. Their parameters are those of the 250 MHz LBA + SKA-Low notebook, so the two notebooks isolate the effect of frequency.
 
 | Parameter | Default | Meaning |
 |---|---|---|
@@ -84,7 +84,7 @@ At 5 GHz, 1 TECU is only 1.7 rad, so the in-band decorrelation is dominated by t
 * `obs_Cff`: scenario C after an **idealised fringe fit** (scan-average delay/dTEC and their linear drift removed per baseline), imaged once in Section 8 as an extra reference;
 * the decorrelation with the delay term only and with the dTEC term only, to show which one matters.
 
-**Output:** `03_diagnostics_screen_and_visibilities.png` (screen, raw and oracle-calibrated amplitudes, closure phases).
+**Output:** `03_diagnostics_screen_and_visibilities.png` (ionospheric and tropospheric screens, raw and oracle-calibrated amplitudes, closure phases).
 
 ## 7. Self-calibration (oracle reference) and closure check
 
@@ -153,7 +153,7 @@ Writes `results_VLBI_5GHz_jet/` and `results_VLBI_5GHz_jet.zip`:
 
 ## 14. Conclusions and limitations
 
-Summarises what the experiment measures and its assumptions (assumed SKA-Mid and AVN SEFDs, illustrative screen, no fringe-fit step in the pipeline, a single elevation limit).
+Summarises what the experiment measures and its assumptions (assumed SKA-Mid and AVN SEFDs, illustrative atmospheric corruptions, no fringe-fit step in the pipeline, a single elevation limit).
 
 ---
 

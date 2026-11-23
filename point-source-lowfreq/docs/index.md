@@ -5,7 +5,7 @@
 !!! important "Array: LBA + SKA-Low (7 stations), SKA-Low included in every simulation"
     Six Long Baseline Array antennas (Parkes, ATCA, Hobart, Ceduna, Warkworth, Katherine) **plus SKA-Low**, phased as a single VLBI station. There is no LBA-only run: SKA-Low takes part in every observation, calibration and image, and it is by far the most sensitive element (4.4 Jy against ~2000 Jy for the LBA antennas). See [Arrays](../concepts/arrays.md#lba-skalow).
 
-This is the reference notebook of the project: the first to be completed, and the one whose format the other notebooks follow. It simulates a low-frequency VLBI observation of a southern **circular Gaussian** (80 mas FWHM, 1 Jy, RA 5 h, Dec −35°) at 250 MHz, where the **ionosphere** is the dominant source of phase errors, and tests the 3-round imaging pipeline under scenarios A, B and C.
+This is the reference notebook of the project: the first to be completed, and the one whose format the other notebooks follow. It simulates a low-frequency VLBI observation of a southern **circular Gaussian** (80 mas FWHM, 1 Jy, RA 5 h, Dec −35°) at 250 MHz, where the **ionospheric** part of the atmospheric corruptions dominates the phase errors (the tropospheric part is minor), and tests the 3-round imaging pipeline under scenarios A, B and C.
 
 !!! warning "A hypothetical configuration"
     The LBA has no receivers at 250 MHz (its lowest band is ~700 MHz at Parkes and 1.3–1.4 GHz elsewhere). Station positions and apertures are real; the sensitivities are assumptions (Section 1).
@@ -57,9 +57,9 @@ The error-free reference observation (`obs_ideal`), plus a count of the baseline
 
 `obs_B`.
 
-## 6. Scenario C: thermal noise + gain errors + structured atmospheric phase errors (ionosphere + troposphere)
+## 6. Scenario C: thermal noise + gain errors + structured atmospheric corruptions (ionospheric + tropospheric)
 
-The atmospheric screen, dTEC (ionosphere) and delay (troposphere) (`make_screens`) and its in-band and in-scan averaging (`apply_iono`); see [Scenarios](../concepts/scenarios.md#scenario-c).
+The atmospheric corruptions, an ionospheric dTEC screen and a tropospheric delay screen (`make_screens`), and their in-band and in-scan averaging (`apply_iono`, which applies both parts despite its name); see [Scenarios](../concepts/scenarios.md#scenario-c).
 
 | Parameter | Default | Meaning |
 |---|---|---|
@@ -68,7 +68,7 @@ The atmospheric screen, dTEC (ionosphere) and delay (troposphere) (`make_screens
 | `tau0_sigma_ns`, `tau_rate_ns` | 0.5 ns, 0.01 ns/√min | delay offset and random walk |
 | `n_sub` | 24 | sub-integrations per scan for the in-scan average |
 
-At 250 MHz, 1 TECU is **33.8 rad**: the ionospheric phase changes by several radians across the 50 MHz band, so the decorrelation is large, ionospheric and not antenna-based.
+At 250 MHz, 1 TECU is **33.8 rad**: the ionospheric phase changes by several radians across the 50 MHz band, while the tropospheric delay (0.5 ns) changes it by only ~0.2 rad. The decorrelation from the atmospheric corruptions is therefore large, mostly ionospheric, and not antenna-based.
 
 ## 7. Self-calibration (oracle reference) and closure check
 
@@ -129,7 +129,7 @@ A discussion of the numbers of the run (see [below](#results-of-the-reference-ru
 
 ## 14. Conclusions and limitations
 
-What the experiment measures and its limitations: a forgiving source model, assumed sensitivities, an illustrative screen, a single elevation limit, and no Faraday rotation, scattering or dispersive fringe fit.
+What the experiment measures and its limitations: a forgiving source model, assumed sensitivities, illustrative atmospheric corruptions (ionospheric and tropospheric screens), a single elevation limit, and no Faraday rotation, scattering or dispersive fringe fit.
 
 ---
 
@@ -195,13 +195,13 @@ Reference run: one CPU core, **10 min**. Array: **LBA + SKA-Low**. The numbers o
 
 * Under antenna-based errors (A, B) the **closure quantities alone recover the Gaussian almost perfectly**, and the closures-only image is an excellent self-calibration model: phase errors drop from 90° to 0.9° (the oracle value) and amplitude errors to 2.4%.
 * The fixed pipeline calibrates the phases equally well, but its **first amplitude self-calibration uses an unconverged round-1 image** and leaves amplitude errors of ~11% (the images made from those data have 0.78 Jy instead of 1 Jy). With 7 stations each gain amplitude is weakly constrained; a longer first round or a phase-only first self-calibration avoids it.
-* In C the limit is the **in-band ionospheric decorrelation**: no model, not even the true one, brings χ² close to 1. At 250 MHz this calls for a dispersive fringe fit or ionospheric calibration.
+* In C the limit is the **in-band decorrelation from the atmospheric corruptions**, mostly from their ionospheric part at 250 MHz (the tropospheric part is minor): no model, not even the true one, brings χ² close to 1. At 250 MHz this calls for a dispersive fringe fit or ionospheric calibration.
 
 ## Troubleshooting
 
 | Symptom | Cause and fix |
 |---|---|
 | Few closure triangles in Section 3 | The source is too large for the longest baselines: reduce `src_fwhm_mas`. |
-| Scenario C much worse than B | Expected at 250 MHz: the ionospheric decorrelation is not antenna-based. Reduce `dtec_rate` / `dtec0_sigma` to see where it starts to matter. |
+| Scenario C much worse than B | Expected at 250 MHz: the decorrelation from the atmospheric corruptions (mostly their ionospheric part; the tropospheric part is minor at 250 MHz) is not antenna-based. Reduce `dtec_rate` / `dtec0_sigma` to see where it starts to matter. |
 | Very noisy images | `ska_n_tied` lowered: every baseline to SKA-Low loses sensitivity. |
 | Numbers of B and C differ from the guide | `ehtim` gain seeds depend on the Python hash seed; use `PYTHONHASHSEED=0`. |

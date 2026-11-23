@@ -2,13 +2,15 @@
 
 This site is the user guide of a set of Jupyter notebooks (and one long-running script) that **simulate, corrupt, calibrate and image VLBI observations** with [`eht-imaging`](https://github.com/achael/eht-imaging) (`ehtim` 1.2.10). The test cases share three error scenarios (A, B and C, the RADIOBLOCKS definitions), one imaging recipe and one report format, so their results can be compared directly.
 
+**Contact:** questions, comments and collaboration requests are welcome at [radioblocks.vlbi@gmail.com](mailto:radioblocks.vlbi@gmail.com).
+
 !!! important "Every array includes an SKA telescope"
     SKA is part of every array that is simulated and imaged in this project:
 
     * at **250 MHz** the array is the **LBA + SKA-Low**: six Long Baseline Array antennas **plus SKA-Low**;
     * at **5 GHz** the array is the **EVN + AVN + SKA-Mid**: the European VLBI Network, the African VLBI Network **and four SKA-Mid elements** (the phased-up SKA-Mid core `S5` and the dishes `S004`, `S008`, `S133`).
 
-    The only array without SKA is the **EVN alone (no SKA)**, and it is always labelled that way. It appears in two places: the uv-coverage comparison of the 5 GHz notebooks, and the binary-jet campaign, where it is the comparison array for the EVN + AVN + SKA-Mid. See [Arrays](concepts/arrays.md).
+    The only array without SKA is the **EVN alone (no SKA)**, and it is always labelled that way. It appears in two places: the uv-coverage comparison of the 5 GHz notebooks, and the X-ray binary campaign, where it is the comparison array for the EVN + AVN + SKA-Mid. See [Arrays](concepts/arrays.md).
 
 ## The cases
 
@@ -16,7 +18,7 @@ The repository has **one folder per case**. Each folder holds the same five thin
 
 ```text
 <case>/
-├── notebook/      the executed notebook (and, for the binary jet, script/ with the campaign script)
+├── notebook/      the executed notebook (and, for the X-ray binary, script/ with the campaign and toy-model scripts)
 ├── toy-model/     the source model and its parameters
 ├── results/       reference run: figures/ (PNG), images/ (FITS), tables/ (CSV), visibilities/ (UVFITS)
 ├── docs/          the user guide of the case (this site, under Cases)
@@ -29,7 +31,7 @@ The repository has **one folder per case**. Each folder holds the same five thin
 | [point-source-midfreq](point-source-midfreq/index.md) | **EVN + AVN + SKA-Mid** | 5 GHz | circular Gaussian, 0.5 mas | A, B, C |
 | [jet-midfreq](jet-midfreq/index.md) | **EVN + AVN + SKA-Mid** | 5 GHz | relativistic jet | A, B, C |
 | [jet-midfreq-class](jet-midfreq-class/index.md) | **EVN + AVN + SKA-Mid** | 5 GHz | relativistic jet (hands-on class) | A, B, C |
-| [binary-jet-midfreq](binary-jet-midfreq/index.md) | **EVN (no SKA)** vs. **EVN + AVN + SKA-Mid** | 5 GHz | time-variable precessing jet (SS 433-like) | A, B |
+| [xray-binary-jet-midfreq](xray-binary-jet-midfreq/index.md) | **EVN (no SKA)** vs. **EVN + AVN + SKA-Mid** | 5 GHz | X-ray binary: time-variable precessing jet (SS 433-like microquasar) | A, B |
 
 All cases except the class are **delivery** notebooks in report format. The class notebook covers the jet case as a guided hands-on session, with explanations and exercises.
 
@@ -37,7 +39,7 @@ All cases except the class are **delivery** notebooks in report format. The clas
 
 1. **Array and sensitivities**: station positions, SEFDs and observing set-up, with the SKA element named explicitly.
 2. **Source model** and an error-free **reference observation**, with its uv-coverage.
-3. **Scenarios A, B and C**: thermal noise; thermal noise + gains + random phases; thermal noise + gains + a physical atmospheric screen (ionosphere + troposphere).
+3. **Scenarios A, B and C**: thermal noise; thermal noise + gains + random phases; thermal noise + gains + structured atmospheric corruptions (an ionospheric and a tropospheric phase screen).
 4. **Self-calibration and closure checks.**
 5. **Imaging** with a multi-round RML pipeline (closure quantities first, then iterative self-calibration), plus reference strategies.
 6. **Results analysis**: image metrics, diagnostics, **the reduced χ² of every data term at every iteration for every reconstruction**, a comparison of imaging strategies and a discussion of the numbers.

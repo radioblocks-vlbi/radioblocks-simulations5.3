@@ -12,3 +12,5 @@ __pycache__/
 */notebook/jet_model.txt
 binary_jet_campaign_results/
 */script/binary_jet_campaign_results/
+*/notebook/xray_binary_toy_model/
+xray_binary_toy_model/

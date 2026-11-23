@@ -1,9 +1,12 @@
 # RADIOBLOCKS VLBI simulations with `ehtim`
 
-Jupyter notebooks (and one campaign script) that simulate, corrupt, calibrate and image VLBI observations with [`eht-imaging`](https://github.com/achael/eht-imaging) 1.2.10, under the RADIOBLOCKS error scenarios A (thermal noise), B (+ gains and random phases) and C (+ a physical atmospheric screen: ionosphere + troposphere).
+Jupyter notebooks (and one campaign script) that simulate, corrupt, calibrate and image VLBI observations with [`eht-imaging`](https://github.com/achael/eht-imaging) 1.2.10, under the RADIOBLOCKS error scenarios A (thermal noise), B (+ gains and random phases) and C (+ structured atmospheric corruptions: an ionospheric (dispersive) and a tropospheric (non-dispersive) phase screen).
 
 **Contact:** questions, comments and collaboration requests are welcome at [radioblocks.vlbi@gmail.com](mailto:radioblocks.vlbi@gmail.com).
 
+**Every array includes an SKA telescope:** **LBA + SKA-Low** at 250 MHz and **EVN + AVN + SKA-Mid** at 5 GHz. The only array without SKA, the **EVN alone (no SKA)**, is used as a comparison and always labelled that way.
+
+📖 **User guide:** https://radioblocks-vlbi.github.io/radioblocks-vlbi-ehtim/
 
 ## Cases
 
@@ -13,14 +16,14 @@ Jupyter notebooks (and one campaign script) that simulate, corrupt, calibrate an
 | [`point-source-midfreq/`](point-source-midfreq/) | EVN + AVN + SKA-Mid | 5 GHz | circular Gaussian, 0.5 mas | A, B, C |
 | [`jet-midfreq/`](jet-midfreq/) | EVN + AVN + SKA-Mid | 5 GHz | relativistic jet | A, B, C |
 | [`jet-midfreq-class/`](jet-midfreq-class/) | EVN + AVN + SKA-Mid | 5 GHz | relativistic jet, hands-on class version | A, B, C |
-| [`binary-jet-midfreq/`](binary-jet-midfreq/) | EVN (no SKA) vs. EVN + AVN + SKA-Mid | 5 GHz | time-variable precessing jet (SS 433-like) | A, B |
+| [`xray-binary-jet-midfreq/`](xray-binary-jet-midfreq/) | EVN (no SKA) vs. EVN + AVN + SKA-Mid | 5 GHz | X-ray binary: time-variable precessing jet (SS 433-like microquasar) | A, B |
 
 Every case folder has the same layout:
 
 ```text
 <case>/
 ├── README.md
-├── notebook/        executed notebook (binary case: also script/ with the full-campaign script)
+├── notebook/        executed notebook (X-ray binary: also script/ with the campaign and toy-model scripts)
 ├── toy-model/       source model files and parameters
 ├── results/         reference run
 │   ├── figures/       PNG
@@ -64,3 +67,7 @@ To add a case: create `<new-case>/` with the same layout, a `mkdocs.yml` (`site_
 ## Reproducibility
 
 Scenario A is reproduced exactly. Scenarios B and C use `ehtim` gain/phase seeds derived from Python's string hashing, so their numbers change slightly between sessions; start Jupyter with `PYTHONHASHSEED=0` to fix them.
+
+## License
+
+This project is distributed under the [GNU General Public License v3.0](LICENSE).

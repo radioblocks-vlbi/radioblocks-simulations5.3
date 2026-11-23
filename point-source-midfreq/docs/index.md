@@ -5,7 +5,7 @@
 !!! important "Array: EVN + AVN + SKA-Mid (20 stations), SKA-Mid included in every simulation"
     11 EVN stations, **4 SKA-Mid elements** (`S5`, the phased-up SKA-Mid core, and the dishes `S004`, `S008`, `S133`) and 5 AVN stations. The **EVN alone (no SKA)** is simulated once, only for the uv-coverage comparison of Section 3. See [Arrays](../concepts/arrays.md).
 
-This notebook runs the A/B/C test of the project on the simplest possible source at 5 GHz: a **compact, centred circular Gaussian** (0.5 mas FWHM, 1 Jy, RA 12 h, Dec +4°), the kind of source used as a VLBI calibrator. Because its visibility is known analytically and its closure phases are exactly zero, any departure from the ideal curves is an error, not structure. It has the same structure as the [jet notebook](../jet-midfreq/index.md) and as the [LBA + SKA-Low notebook](../point-source-lowfreq/index.md), with which it shares the scenarios, the pipeline and the screen of scenario C.
+This notebook runs the A/B/C test of the project on the simplest possible source at 5 GHz: a **compact, centred circular Gaussian** (0.5 mas FWHM, 1 Jy, RA 12 h, Dec +4°), the kind of source used as a VLBI calibrator. Because its visibility is known analytically and its closure phases are exactly zero, any departure from the ideal curves is an error, not structure. It has the same structure as the [jet notebook](../jet-midfreq/index.md) and as the [LBA + SKA-Low notebook](../point-source-lowfreq/index.md), with which it shares the scenarios, the pipeline and the atmospheric corruptions (ionospheric and tropospheric) of scenario C.
 
 ## Quick start
 
@@ -57,7 +57,7 @@ Chooses the best 6-h window, simulates the error-free reference with the exact D
 
 * **A** (`obs_A`): thermal noise only.
 * **B** (`obs_B`): gains + random phases.
-* **C** (`obs_C`): gains + the dTEC/delay screen of the LBA notebook (`dtec0_sigma` = 0.3 TECU, `dtec_rate` = 0.02 TECU/√min, `tau0_sigma_ns` = 0.5 ns, `tau_rate_ns` = 0.01 ns/√min), averaged over 32 channels and the scan. Also builds `obs_Cff` (idealised fringe fit) and the decorrelation of the delay-only and dTEC-only screens.
+* **C** (`obs_C`): gains + the atmospheric corruptions of the LBA notebook: an ionospheric dTEC screen (`dtec0_sigma` = 0.3 TECU, `dtec_rate` = 0.02 TECU/√min) and a tropospheric delay screen (`tau0_sigma_ns` = 0.5 ns, `tau_rate_ns` = 0.01 ns/√min), averaged over 32 channels and the scan. Also builds `obs_Cff` (idealised fringe fit) and the decorrelation of the delay-only and dTEC-only screens.
 
 See [Scenarios](../concepts/scenarios.md). For a compact, bright source the SNR is high on every baseline, so the residual decorrelation of C stands out more clearly against the thermal noise than for the jet.
 
@@ -191,7 +191,7 @@ Reference run: one CPU core, **~30 min**. Array: **EVN + AVN + SKA-Mid** (20 sta
 * Closures plus iterative self-calibration remove antenna-based errors completely: **B is as good as A**.
 * For a source **smaller than the beam**, the closure quantities alone recover the **phases** (2–3.5° after self-calibration to the closures-only image) but **not the amplitudes**: amplitude self-calibration to that image introduces 28–59% errors. Use a closure image first for a **phase-only** self-calibration.
 * The pipeline image is a good self-calibration model (1% / 0.3° in B; re-imaging gives nrmse 0.016).
-* Scenario C at 5 GHz is limited by the **delay** (tropospheric) part of the screen, which a fringe fit removes.
+* Scenario C at 5 GHz is limited by the **tropospheric** (delay) part of the atmospheric corruptions, which a fringe fit removes; their ionospheric part is negligible at 5 GHz.
 
 ## Troubleshooting
 

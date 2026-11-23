@@ -8,7 +8,7 @@
 | `ehtim` | **1.2.10** | Every function signature used in the notebooks was checked against this version |
 | `numpy` | **< 2** | `ehtim` 1.2.10 uses the old NumPy C API |
 | `scipy`, `matplotlib`, `pandas`, `astropy` | recent | analysis, figures and tables |
-| `imageio` | recent | GIFs of the binary-jet campaign script |
+| `imageio` | recent | GIFs of the X-ray binary campaign script |
 | `scikit-image` | optional | SSIM metric of the campaign script (the metric is skipped if it is missing) |
 | `pynfft` | optional | `--ttype nfft` in the campaign script; the notebooks never need it |
 
@@ -52,15 +52,15 @@ pip install -r requirements.txt
 | point-source-lowfreq | ~10 min |
 | point-source-midfreq | ~30 min |
 | jet-midfreq | ~50 min |
-| jet-midfreq-class | ~30 min |
-| binary-jet-midfreq, notebook | ~1 h 30 min (~40 min with `RUN_SELFCAL_TEST = False`) |
-| binary-jet-midfreq, script | **days** (see the [guide](binary-jet-midfreq/index.md#the-full-campaign-script)) |
+| jet-midfreq-class | ~35 min |
+| xray-binary-jet-midfreq, notebook | ~1 h 30 min (~40 min with `RUN_SELFCAL_TEST = False`) |
+| xray-binary-jet-midfreq, script | **days** (see the [guide](xray-binary-jet-midfreq/index.md#the-full-campaign-script)) |
 
 Most of the time goes into self-calibration and RML imaging with the 20-station EVN + AVN + SKA-Mid array, including the added self-calibration test of every notebook.
 
 ## Reproducibility
 
-The thermal noise, the dTEC/delay screen of scenario C and the binary-jet prior perturbation use fixed seeds. The station **gain and phase errors** of scenarios B and C, however, are drawn by `ehtim` from seeds derived from Python's string hashing, which changes from one Python session to the next. Re-running a notebook therefore reproduces scenario A exactly, but B and C only statistically: the numbers of scenarios B and C quoted in the guides change by a few per cent from run to run. To fix them, start Jupyter with a fixed hash seed:
+The thermal noise, the atmospheric corruptions of scenario C (ionospheric dTEC and tropospheric delay screens) and the X-ray binary prior perturbation use fixed seeds. The station **gain and phase errors** of scenarios B and C, however, are drawn by `ehtim` from seeds derived from Python's string hashing, which changes from one Python session to the next. Re-running a notebook therefore reproduces scenario A exactly, but B and C only statistically: the numbers of scenarios B and C quoted in the guides change by a few per cent from run to run. To fix them, start Jupyter with a fixed hash seed:
 
 ```bash
 PYTHONHASHSEED=0 jupyter lab
@@ -72,7 +72,7 @@ Every notebook ends with an **Export** section that collects everything in one f
 
 | Folder | Content |
 |---|---|
-| `visibilities/` (the binary notebook calls it `uvfits/` in its own export) | the reference observation and every scenario as `.uvfits` (AIPS, CASA, Difmap) and `.txt` |
+| `visibilities/` (the X-ray binary notebook calls it `uvfits/` in its own export) | the reference observation and every scenario as `.uvfits` (AIPS, CASA, Difmap) and `.txt` |
 | `figures/` | every figure of the notebook as `.png`, including the χ² convergence figures |
 | `images/` | the input model and every reconstruction as `.fits` |
-| `tables/` | metric tables, final χ² per round, regularizers and weights of every pipeline, SEFDs, scenario-C screen, array files and a `README.txt` |
+| `tables/` | metric tables, final χ² per round, regularizers and weights of every pipeline, SEFDs, scenario-C atmospheric screens (ionospheric + tropospheric), array files and a `README.txt` |
