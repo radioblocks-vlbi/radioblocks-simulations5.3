@@ -1,6 +1,6 @@
 VLBI feasibility summary
 ========================
-Generated:            2026-11-20 10:50
+Generated:            2026-11-23 19:30
 Array:                EVN + AVN + SKA-Mid (20 stations: 11 EVN, 4 SKA-Mid, 5 AVN)
 Observing frequency:  5.00 GHz
 Bandwidth:            256 MHz
@@ -9,11 +9,15 @@ Visibility points:    6376
 Beam FWHM (maj/min):  1961.1 / 874.4 uas
 Beam position angle:  90.7 deg
 Ideal (closures + hybrid)                        NRMSE=0.363  NXCORR=0.932  flux=1.01 Jy
-Scenario A (thermal only, closures + hybrid)     NRMSE=0.356  NXCORR=0.935  flux=1.01 Jy
-Scenario B (closures + hybrid self-cal)          NRMSE=0.355  NXCORR=0.938  flux=1.01 Jy
-Scenario B (raw visibilities)                    NRMSE=1.528  NXCORR=-0.011  flux=0.05 Jy
-Scenario C (closures + hybrid self-cal)          NRMSE=0.295  NXCORR=0.956  flux=1.00 Jy
-Scenario C (raw visibilities)                    NRMSE=0.915  NXCORR=0.530  flux=0.12 Jy
-Regularizer 'simple' (Scenario B)                NRMSE=0.455  NXCORR=0.887  flux=1.13 Jy
-Regularizer 'tv' (Scenario B)                    NRMSE=0.379  NXCORR=0.931  flux=1.15 Jy
-Regularizer 'tv2' (Scenario B)                   NRMSE=0.464  NXCORR=0.883  flux=1.13 Jy
+Scenario A (thermal only, closures + hybrid)     NRMSE=0.427  NXCORR=0.907  flux=1.01 Jy
+Scenario B (closures + hybrid self-cal)          NRMSE=0.339  NXCORR=0.942  flux=1.00 Jy
+Scenario B (raw visibilities)                    NRMSE=1.590  NXCORR=-0.024  flux=0.02 Jy
+Scenario C (closures + hybrid self-cal)          NRMSE=0.374  NXCORR=0.929  flux=1.00 Jy
+Scenario C (raw visibilities)                    NRMSE=0.937  NXCORR=0.521  flux=0.10 Jy
+Ideal (closures + self-cal vis, 4.9)             NRMSE=0.319  NXCORR=0.947  flux=1.03 Jy
+Scenario A (closures + self-cal vis, 4.9)        NRMSE=0.338  NXCORR=0.940  flux=1.03 Jy
+Scenario B (closures + self-cal vis, 4.9)        NRMSE=0.493  NXCORR=0.869  flux=0.97 Jy
+Scenario C (closures + self-cal vis, 4.9)        NRMSE=0.432  NXCORR=0.900  flux=0.83 Jy
+Regularizer 'simple' (Scenario B)                NRMSE=0.444  NXCORR=0.904  flux=0.95 Jy
+Regularizer 'tv' (Scenario B)                    NRMSE=0.429  NXCORR=0.909  flux=0.95 Jy
+Regularizer 'tv2' (Scenario B)                   NRMSE=0.426  NXCORR=0.910  flux=0.95 Jy

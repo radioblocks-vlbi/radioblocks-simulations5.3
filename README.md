@@ -6,7 +6,7 @@ Jupyter notebooks (and one campaign script) that simulate, corrupt, calibrate an
 
 **Every array includes an SKA telescope:** **LBA + SKA-Low** at 250 MHz and **EVN + AVN + SKA-Mid** at 5 GHz. The only array without SKA, the **EVN alone (no SKA)**, is used as a comparison and always labelled that way.
 
- **User guide:** [https://radioblocks-vlbi.github.io/radioblocks-vlbi-ehtim/](https://radioblocks-vlbi.github.io/radioblocks-simulations5.3/)
+📖 **User guide:** https://radioblocks-vlbi.github.io/radioblocks-vlbi-ehtim/
 
 ## Cases
 

@@ -1,10 +1,14 @@
 reconstruction,nrmse,nxcorr,total_flux_Jy,core_flux_over_ref,core_offset_mas,dynamic_range
 Ideal (closures + hybrid),0.3633,0.9319,1.0079,1.0152,0.2188,627.7033
-"Scenario A (thermal only, closures + hybrid)",0.3563,0.9346,1.0078,1.0096,0.1999,651.1885
-Scenario B (closures + hybrid self-cal),0.3547,0.9377,1.0064,1.0263,0.2656,912.2044
-Scenario B (raw visibilities),1.5282,-0.0108,0.0477,0.0522,3.4296,15.4400
-Scenario C (closures + hybrid self-cal),0.2955,0.9560,1.0029,1.0127,0.1252,897.0546
-Scenario C (raw visibilities),0.9153,0.5304,0.1170,0.0777,5.5682,17.8598
-Regularizer 'simple' (Scenario B),0.4553,0.8873,1.1306,0.9983,0.9441,162.9843
-Regularizer 'tv' (Scenario B),0.3791,0.9307,1.1478,0.9237,0.8482,140.5139
-Regularizer 'tv2' (Scenario B),0.4635,0.8827,1.1331,1.0052,0.8968,161.3883
+"Scenario A (thermal only, closures + hybrid)",0.4272,0.9065,1.0075,1.0270,0.2851,538.4290
+Scenario B (closures + hybrid self-cal),0.3387,0.9418,1.0009,1.0031,0.1722,638.5234
+Scenario B (raw visibilities),1.5904,-0.0236,0.0250,0.0253,3.5658,18.8281
+Scenario C (closures + hybrid self-cal),0.3741,0.9287,1.0001,1.0225,0.2337,540.5008
+Scenario C (raw visibilities),0.9371,0.5214,0.0975,0.0711,5.3848,18.2675
+"Ideal (closures + self-cal vis, 4.9)",0.3190,0.9469,1.0270,0.9317,0.5166,209.2430
+"Scenario A (closures + self-cal vis, 4.9)",0.3378,0.9403,1.0311,0.9685,0.9383,189.7961
+"Scenario B (closures + self-cal vis, 4.9)",0.4925,0.8688,0.9705,0.8717,0.2080,267.8856
+"Scenario C (closures + self-cal vis, 4.9)",0.4323,0.8998,0.8336,0.7901,0.5917,179.4361
+Regularizer 'simple' (Scenario B),0.4439,0.9037,0.9513,0.9593,0.2535,584.0130
+Regularizer 'tv' (Scenario B),0.4293,0.9091,0.9541,0.9639,0.2379,601.0060
+Regularizer 'tv2' (Scenario B),0.4259,0.9104,0.9513,0.9229,0.2132,607.6949

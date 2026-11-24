@@ -60,11 +60,12 @@ Most of the time goes into self-calibration and RML imaging with the 20-station 
 
 ## Reproducibility
 
-The thermal noise, the atmospheric corruptions of scenario C (ionospheric dTEC and tropospheric delay screens) and the X-ray binary prior perturbation use fixed seeds. The station **gain and phase errors** of scenarios B and C, however, are drawn by `ehtim` from seeds derived from Python's string hashing, which changes from one Python session to the next. Re-running a notebook therefore reproduces scenario A exactly, but B and C only statistically: the numbers of scenarios B and C quoted in the guides change by a few per cent from run to run. To fix them, start Jupyter with a fixed hash seed:
 
 ```bash
 PYTHONHASHSEED=0 jupyter lab
 ```
+
+The **hands-on class notebook** (`jet-midfreq-class`) does not fix the seed of the thermal noise either, so all its scenarios, including A, change from run to run (NRMSE by a few hundredths, up to ~0.07). Participants who re-run it should compare trends, not exact numbers.
 
 ## Outputs
 
